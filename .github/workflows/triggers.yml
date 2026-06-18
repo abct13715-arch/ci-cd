@@ -16,6 +16,6 @@ on:
 jobs:
   test:
     name: learn
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: echo "Hello"
