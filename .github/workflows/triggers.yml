@@ -2,6 +2,8 @@ name: trigger-learnings
 
 on: 
   push:
+    branches:
+      - main
 
 jobs:
   test:
