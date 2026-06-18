@@ -5,6 +5,7 @@ on:
 
 jobs:
   test:
+    name: learn
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello"
