@@ -9,7 +9,7 @@ on:
   #     - main
   #   types:
   #     - opened
-  # workflow_dispatch:
+  workflow_dispatch:
   # schedule:
   #   - cron: "*/10 * * * *"
 
@@ -18,4 +18,6 @@ jobs:
     name: learn
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello"
+      - run: |
+          echo "${{ inputs.environment }}"
+          echo "${{ inputs.version }}"
