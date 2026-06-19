@@ -1,6 +1,6 @@
 name: trigger-learnings
 
-on: 
+on:
   push:
     branches:
       - main
@@ -10,12 +10,12 @@ on:
   #   types:
   #     - opened
   # workflow_dispatch:
-  schedule:    
-    - cron: "*/10 * * * *"    
+  # schedule:
+  #   - cron: "*/10 * * * *"
 
 jobs:
   test:
     name: learn
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Hello"
