@@ -11,14 +11,14 @@ on:
   #     - opened
   workflow_dispatch:
     inputs:
-    environment:
-      description: "Environment"
-      required: true
-      type: string
-    version:
-      description: "Version"
-      required: true
-      type: string
+      environment:
+        description: "Environment"
+        required: true
+        type: string
+      version:
+        description: "Version"
+        required: true
+        type: string
   # schedule:
   #   - cron: "*/10 * * * *"
 
