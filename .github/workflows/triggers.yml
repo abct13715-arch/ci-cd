@@ -37,3 +37,5 @@ jobs:
           echo "Event: ${{ github.event_name }}"
 
           echo "Repo Variable: ${{ vars.ENVIRONMENT }}"
+
+          echo "Api token: ${{ secrets.API_TOKEN }}"
