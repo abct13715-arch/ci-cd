@@ -28,5 +28,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${{ inputs.environment }}"
-          echo "${{ inputs.version }}"
+          echo "Input Environment: ${{ inputs.environment }}"
+          echo "Input Version: ${{ inputs.version }}"
+
+          echo "Actor: ${{ github.actor }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Event: ${{ github.event_name }}"
+
+          echo "Repo Variable: ${{ vars.ENVIRONMENT }}"
