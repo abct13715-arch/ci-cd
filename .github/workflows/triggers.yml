@@ -4,11 +4,7 @@ on:
   push:
     branches:
       - main
-  # pull_request:
-  #   branches:
-  #     - main
-  #   types:
-  #     - opened
+
   workflow_dispatch:
     inputs:
       environment:
@@ -19,23 +15,73 @@ on:
         description: "Version"
         required: true
         type: string
-  # schedule:
-  #   - cron: "*/10 * * * *"
 
 jobs:
   test:
     name: learn
+
+    # GitHub Environment
+    # This loads Environment Secrets and Environment Variables
+    environment: ${{ inputs.environment }}
+
     runs-on: ubuntu-latest
+
     steps:
-      - run: |
+      - name: Print Inputs, Variables and Secrets
+        run: |
+          echo "=============================="
+          echo "WORKFLOW INPUTS"
+          echo "=============================="
+
+          # workflow_dispatch inputs
           echo "Input Environment: ${{ inputs.environment }}"
           echo "Input Version: ${{ inputs.version }}"
+
+          echo ""
+          echo "=============================="
+          echo "GITHUB CONTEXT"
+          echo "=============================="
 
           echo "Actor: ${{ github.actor }}"
           echo "Ref: ${{ github.ref }}"
           echo "Branch: ${{ github.ref_name }}"
           echo "Event: ${{ github.event_name }}"
 
-          echo "Repo Variable: ${{ vars.ENVIRONMENT }}"
+          echo ""
+          echo "=============================="
+          echo "REPOSITORY VARIABLE"
+          echo "=============================="
 
-          echo "Api token: ${{ secrets.API_TOKEN }}"
+          # Repository Variable
+          echo "Repo ENVIRONMENT: ${{ vars.ENVIRONMENT }}"
+
+          echo ""
+          echo "=============================="
+          echo "ENVIRONMENT VARIABLE"
+          echo "=============================="
+
+          # Environment Variable
+          echo "Environment APP_URL: ${{ vars.APP_URL }}"
+
+          echo ""
+          echo "=============================="
+          echo "REPOSITORY SECRET"
+          echo "=============================="
+
+          # Repository Secret
+          echo "Repository API_TOKEN exists"
+
+          echo ""
+          echo "=============================="
+          echo "ENVIRONMENT SECRET"
+          echo "=============================="
+
+          # Environment Secret
+          echo "Environment ENVIRONMENT_SECRET exists"
+
+    env:
+      # Repository Secret
+      REPO_SECRET: ${{ secrets.API_TOKEN }}
+
+      # Environment Secret
+      ENV_SECRET: ${{ secrets.ENVIRONMENT_SECRET }}     
